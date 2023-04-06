@@ -1,0 +1,7 @@
+aerenderKills.exe
+
+起動しているaerender.exeをすべてkillします。
+このアプリを起動すると実行プロセスで"aerender"を探してリストに表示します。
+killボタンですべてkill(強制終了)させます
+
+古橋
