@@ -15,8 +15,8 @@ namespace aerenderKills
 
 		public void Scan()
 		{
-			Process[] ps = Process.GetProcessesByName("aerender");
 			Process[] ps2 = Process.GetProcessesByName("AfterFX.com");
+			Process[] ps = Process.GetProcessesByName("aerender");
 			listBox1.Items.Clear();
 			List<Process> list = new List<Process>();
 			foreach (System.Diagnostics.Process p in ps2)
@@ -48,12 +48,15 @@ namespace aerenderKills
 			if (procs.Length <= 0) return;
 			killCount++;
 			if (killCount > 10) return;
-			foreach (System.Diagnostics.Process p in procs)
+			foreach (System.Diagnostics.Process? p in procs)
 			{
 				try
 				{
-					p.Kill();
-					p.WaitForExit(1000);
+					if (p != null)
+					{
+						p.Kill(true);
+						p.WaitForExit(1000);
+					}
 				}
 				catch
 				{
